@@ -6,6 +6,7 @@ import { Currency } from '../../core/wallet/currency/currency.model';
 import { CurrencyService } from '../../core/wallet/currency/currency.service';
 import { WalletService } from '../../core/wallet/wallet.service';
 import { TokenStorageService } from '../../core/authentication/token/token-storage.service';
+import { NavbarService } from './navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,6 @@ import { TokenStorageService } from '../../core/authentication/token/token-stora
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isNavbarCollapsed: boolean;
   
   wallet: Observable<Wallet>;
   currencies: Currency[];
@@ -22,7 +22,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private walletService: WalletService, 
     private tokenStorage: TokenStorageService, 
-    private currencyService: CurrencyService
+    private currencyService: CurrencyService,
+    public nav: NavbarService
   ) { }
 
   ngOnInit() {

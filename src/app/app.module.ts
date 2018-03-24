@@ -22,7 +22,7 @@ import { OrderModule } from './order/order.module';
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     CoreModule,
-    SharedModule,
+    SharedModule.forRoot(),
     LoginModule,
     WalletModule,
     OrderModule,

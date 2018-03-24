@@ -52,7 +52,6 @@ import { EVENT_SUBSCRIBERS, EventSubscriber } from './event/event-subscriber.int
 export class CoreModule {
 
   constructor(@Optional() @Inject(EVENT_SUBSCRIBERS) subscribers: EventSubscriber[], dispatcher: EventDispatcher){
-    console.log(subscribers);
     dispatcher.registerSubscribers(subscribers);
   }
  }

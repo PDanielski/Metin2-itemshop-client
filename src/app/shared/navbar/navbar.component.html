@@ -1,25 +1,33 @@
-<nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark">
-  <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
-      <a class="navbar-brand" [routerLink]="['/']">Home</a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-      </li>
-    </ul>
-    <ul id="user-navbar-list" class="navbar-nav list-inline">
-      <li *ngFor="let currency of currencies" class="nav-item list-inline-item">
-        <a [routerLink]="[currency.href]" role="button" class="btn {{currency.class}}">
-            <img width="20" src="{{ currency.iconHref }}"/>
-            <span>{{ (wallet | async)?.getBalance(currency.id)}}</span>
-        </a>
-      </li>
-      <li class="nav-item list-inline-item">
-        <a [routerLink]="['/logout']" role="button" class="btn btn-outline-danger">Logout</a>
-      </li>
-    </ul>
-    
-  </div>
-</nav>
+  <nav *ngIf="nav.visible && nav.canBeShown()" id="main-navbar" class="navbar navbar-expand-lg navbar-dark">
+    <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand" [routerLink]="['/']">Home</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+        </li>
+      </ul>
+      <ul id="user-navbar-list" class="navbar-nav list-inline">
+        <ng-template #loading>
+          <li style="display:flex;align-items:center;" class="nav-item list-inline-item">
+          <mat-progress-spinner class="wallet-loading-spinner"  diameter="25" color="warn" mode="indeterminate"></mat-progress-spinner>
+        </li>
+        </ng-template>
+        <span class="nav-item list-inline-item" *ngIf="wallet | async as wallet; else loading">
+          <li *ngFor="let currency of currencies" class="nav-item list-inline-item">
+            <a [routerLink]="[currency.href]" role="button" class="btn {{currency.class}}">
+                <img width="20" src="{{ currency.iconHref }}"/>
+                <span>{{ wallet?.getBalance(currency.id)}}</span>
+            </a>
+          </li>
+        </span>
+        <li class="nav-item list-inline-item">
+          <a [routerLink]="['/logout']" role="button" class="btn btn-outline-danger">Logout</a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>

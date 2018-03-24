@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class WalletService {
-  private _wallet = new Subject<Wallet>();
+  private _wallet = new BehaviorSubject<Wallet>(new Wallet());
   private apiUrl: string;
   private walletUpdateIntervalId;
   wallet = this._wallet.asObservable();
