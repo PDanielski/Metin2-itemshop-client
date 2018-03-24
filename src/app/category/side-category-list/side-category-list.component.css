@@ -1,0 +1,27 @@
+.side-menu {
+    list-style: none;
+    padding: 20px 10px 20px 10px;
+}
+
+.side-menu li a {
+    display:block;
+    padding: 5px;
+    color: #333;
+    transition: background-color .2s;
+    letter-spacing:1px;
+}
+
+.side-menu li .selected {
+    color: #1976d2;
+}
+
+.side-menu li a:hover {
+    background-color: #dbdbdb;
+    color: #1976d2;
+    text-shadow: 0 0 5px #fff;
+    text-decoration: none;
+}
+
+.side-menu li a:focus {
+    outline: 2px auto #1e88e5
+}

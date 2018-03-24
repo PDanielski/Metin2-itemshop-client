@@ -1,0 +1,26 @@
+
+<mat-card class="item">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"><img style="width:40px;"[src]="(item.icon).href"/></div>
+      <mat-card-title>{{item.name}}</mat-card-title>
+      <mat-card-subtitle>
+        {{item.teaser}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="margin-top:20px;">
+      <p>
+        {{item.desc}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+        <div>
+          <span *ngFor="let currency of currencies">
+              <span class="badge">
+                  <img class="mr-2" width="16" src="{{currency.iconHref}}"/>
+                  <span> {{item.prices[currency.id]}}</span>
+                </span>
+          </span>
+        </div>
+        <button (click)="openOrderForm()" mat-raised-button color="warn">Acquista</button>
+    </mat-card-actions>
+  </mat-card>

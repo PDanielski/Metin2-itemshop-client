@@ -1,0 +1,22 @@
+.h-100-vh {
+    height:100vh;
+}
+
+.logo {
+    width:100%;
+}
+
+.logo img {
+    width:100%;
+}
+
+.main-container {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:url('assets/bg1.png');
+    background-size:100%;
+    background-attachment: fixed;
+}

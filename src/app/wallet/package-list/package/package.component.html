@@ -1,0 +1,23 @@
+<mat-card class="package">
+    <mat-card-header>
+        <mat-card-title style="letter-spacing:2px;">{{package.name | uppercase}}</mat-card-title>
+        <mat-card-subtitle  style="color: white; letter-spacing: 1.5px; font-style: italic;">{{package.teaser}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions style="display: flex; justify-content: space-between;">
+        <div>
+            <span style="font-size: 2rem;
+            letter-spacing: 1px;
+            margin-left: 20px;">
+              {{package.price | centToEur}}
+            </span>
+            <span *ngFor="let currency of currencies">
+                <span class="badge">
+                    <img class="mr-2" width="36" src="{{currency.iconHref}}"/>
+                    <span style="font-size:2rem;"> {{package.currencies[currency.id]}}</span>
+                  </span>
+            </span>
+        </div>
+
+          <button (click)="openPaypal(package)" mat-raised-button color="accent">Acquista con paypal</button>
+      </mat-card-actions>
+</mat-card>

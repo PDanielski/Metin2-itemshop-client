@@ -1,0 +1,4 @@
+<app-navbar *ngIf="tokenStorage.getToken() && !tokenStorage.getToken().isExpired()"></app-navbar>
+<div>
+    <router-outlet></router-outlet>
+</div>

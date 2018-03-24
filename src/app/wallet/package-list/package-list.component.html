@@ -1,0 +1,14 @@
+
+<div class="main-container dark-bg">
+    <div style="text-align:center;"><div style="letter-spacing: 6px;font-size: 2rem;">ACQUISTA GOLD</div>
+    <div style="
+    letter-spacing: 2px;
+    font-style: italic;
+">Ci aiuterai a sostenere le spese ed ci spronerai a migliorare i nostri servizi </div></div>
+<div style="width: 80%;
+margin: 0 auto;">
+<div class="package-container">
+  <app-package *ngFor="let package of packages | async" [package]="package"></app-package>
+</div>
+</div>
+</div>

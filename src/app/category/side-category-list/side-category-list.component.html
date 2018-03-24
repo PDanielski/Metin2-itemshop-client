@@ -1,0 +1,3 @@
+<ul class="side-menu">
+  <li *ngFor="let category of categories | async"><a routerLinkActive="selected" [routerLink]="['/category',category.link]">{{category.name | uppercase}}</a></li>
+</ul>

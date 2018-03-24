@@ -1,0 +1,13 @@
+<mat-sidenav-container class="main-container">
+    <mat-sidenav class="sidenav" #sidenav mode="side" opened="true">
+        <app-side-category-list></app-side-category-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="sidenav-content">
+        <div class="title-container">
+          <i>Stai visitando la sezione</i> 
+          <div class="title-container-content">{{(currentCategory | async)?.name | uppercase}}</div>
+        </div>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

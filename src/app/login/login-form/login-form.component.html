@@ -1,0 +1,25 @@
+<div id="login-form-container" class="clearfix">
+  <form (ngSubmit)="submit()" #loginForm="ngForm">
+        <ngb-alert *ngIf="isInErrorState" type="danger" (close)="isInErrorState=false" [dismissible]="true">
+            <strong>Autenticazione non riuscita.</strong>
+        </ngb-alert>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input class="form-control" [(ngModel)]="credentials.username" type="text" name="username" id="username" 
+        required/>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control" [(ngModel)]="credentials.password" type="password" name="password" id="password" 
+         required/>
+    </div>
+    <div class="form-group">
+      <ng-template #submittingButtonContent>Autenticazione in corso <i class="fa fa-circle-o-notch fa-spin"></i></ng-template>
+      <ng-template #notSubmittingButtonContent>Invia</ng-template>
+      <button [disabled]="!loginForm.form.valid" type="submit" class="btn float-right">
+        <div *ngIf="isSubmitting;then submittingButtonContent else notSubmittingButtonContent"></div>  
+      </button>
+    </div>
+  </form>
+
+</div>

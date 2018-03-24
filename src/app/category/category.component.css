@@ -1,0 +1,25 @@
+.main-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+  .sidenav {
+      min-width:260px;
+      background: #fafafa;
+      box-shadow:6px 0 6px rgba(0,0,0,.1);
+  }
+
+  .sidenav-content {
+      padding:20px;
+  }
+
+  .title-container {
+      letter-spacing: 2px;
+      margin-bottom:25px;
+  }
+
+  .title-container-content {
+      letter-spacing: 6px;
+      font-size: 2rem;
+  }
