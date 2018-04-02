@@ -15,8 +15,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     console.log("Inizio log per zase");
+    console.log("token");
     console.log(this.tokenStorage.getToken());
+    console.log("E' scaduto?");
     console.log(this.tokenStorage.getToken().isExpired());
+    console.log("Tempo:");
+    
     console.log("Fine log");
     if(!this.tokenStorage.getToken() || this.tokenStorage.getToken().isExpired()){
       this.router.navigate(['/login']);
