@@ -14,6 +14,10 @@ export class AppComponent implements OnInit {
   constructor(private router: Router,public tokenStorage: TokenStorageService,private eventDispatcher: EventDispatcher){}
 
   ngOnInit(){
+    console.log("Inizio log per zase");
+    console.log(this.tokenStorage.getToken());
+    console.log(this.tokenStorage.getToken().isExpired());
+    console.log("Fine log");
     if(!this.tokenStorage.getToken() || this.tokenStorage.getToken().isExpired()){
       this.router.navigate(['/login']);
     }
