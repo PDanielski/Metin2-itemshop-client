@@ -40,7 +40,7 @@ export class Token {
     }
 
     isExpired(){
-        return this.exp < moment().unix();
+        return this.exp < moment.utc().unix();
     }
 
     toJson(){

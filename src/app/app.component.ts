@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { EventDispatcher } from './core/event/event-dispatcher.service';
 import { TokenStorageService } from './core/authentication/token/token-storage.service';
 import { Router } from '@angular/router';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,14 +14,6 @@ export class AppComponent implements OnInit {
   constructor(private router: Router,public tokenStorage: TokenStorageService,private eventDispatcher: EventDispatcher){}
 
   ngOnInit(){
-    console.log("Inizio log per zase");
-    console.log("token");
-    console.log(this.tokenStorage.getToken());
-    console.log("E' scaduto?");
-    console.log(this.tokenStorage.getToken().isExpired());
-    console.log("Tempo:");
-    
-    console.log("Fine log");
     if(!this.tokenStorage.getToken() || this.tokenStorage.getToken().isExpired()){
       this.router.navigate(['/login']);
     }
